@@ -13,7 +13,18 @@ function getDataById ($columns, $table, $id) {
 	return $result;
 }
 
-function getAllData ($columns, $table) {
+function getDataByColumn ($columns, $table, $column, $value) {
+
+	$conn = OpenCon();
+	$query = $conn->prepare("SELECT $columns FROM $table WHERE $column = $value");
+	$query->execute();
+	$query->setFetchMode(PDO::FETCH_ASSOC);
+	$result = $query->fetchAll();
+	$conn = null;
+	return $result;
+}
+
+function getData ($columns, $table) {
 
 	$conn = OpenCon();
 	$query = $conn->prepare("SELECT $columns FROM $table");
@@ -35,4 +46,3 @@ function getAllDataSorted ($columns, $table, $sortedBy) {
 	return $result;
 }
 
-//var_dump(getAllData('', ''));

@@ -1,0 +1,39 @@
+ul>li>span{
+    width: 300px;
+    display: inline-block;
+}
+
+input{
+    width: 300px;
+}
+
+ul{
+    padding:0;
+}
+
+ul>li{
+    list-style: none;
+    display: inline;
+    padding-right:10px;
+    font-size: 30px;
+}
+
+ul>li>a{
+    color:rebeccapurple;
+}
+
+.lists {
+    min-height: 100px;
+    border-collapse: collapse;
+}
+
+.listName {
+    min-height: 50px;
+    font-size: 30px;
+    padding: 0 0 0 10px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.tasks {
+    font-size: 20px;
+}

@@ -1,7 +1,8 @@
 <?php
+
 include "model/logic.php";
 
-//var_dump(getDataByColumn('*', 'tasks', 'list_id', 7));
+//var_dump(getDataByColumn('id', 'lists', 'name', 'bruh'));
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@ include "model/logic.php";
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/2f6bc0b605.js" crossorigin="anonymous"></script>
 </head>
 	<body>
 		<div class="container">
@@ -21,22 +23,49 @@ include "model/logic.php";
 			</nav>
 
 			<h1>Overzicht lijsten</h1>
+			<button class="btn btn-primary mb-2" onclick="showForm()">Nieuwe lijst</button>
+			<button class="btn btn-danger mb-2" onclick="hideForm()" id="annuleerKnop">Annuleer</button>
+			<form action="addList.php" method="post" id="form">
+				<div class="form-group m-0">
+					<input name="listName" type="text" class="form-control" autocomplete="off" placeholder="Vul in de naam van de nieuwe lijst">
+				</div>
+			</form>
 			<div class="container">
             	<div class="row">
             		<?php
 					foreach (getData('*', 'lists') as $list) {
+						if ($_GET['openList'] === $list['id']) {
+							$open = 'open';
+						} else {
+							$open = 'closed';
+						}
 						?>
 						<div class="col-lg-4 p-1 lists">
-							<details>
+							<details <?= $open ?> >
 								<summary class="listName"> <?= $list['name'] ?> </summary>
 								<ul class="list-group">
-								<?php
-								foreach (getDataByColumn('*', 'tasks', 'list_id', $list['id']) as $task) {
-									?>
-									<li class="list-group-item tasks"> <?= $task['description'] ?> </li>
+									<li class="list-group-item p-1 pl-3" >
+										<i class="fas fa-pen" title="Wijzig lijst naam"></i>
+										<i class="fas fa-edit" title="Wijzig item naam"></i>
+										<i class="fas fa-minus float-right m-2" title="Voeg item toe"></i>
+										<i class="fas fa-plus float-right m-2" title="Verwijder item"></i>
+									</li>
 									<?php
-								}
-								?>
+									foreach (getDataByColumn('*', 'tasks', 'list_id', $list['id']) as $task) {
+										?>
+										<li class="list-group-item tasks">
+											<?= $task['description'] ?>
+										</li>
+										<?php
+									}
+									?>
+									<li class="list-group-item">
+										<form action="addTask.php?list=<?= $list['id'] ?>" method="post">
+											<div class="form-group m-0">
+												<input name="taskDescription" type="text" class="form-control" autocomplete="off" placeholder="Nieuwe taak">
+											</div>
+										</form>
+                                    </li>
 								</ul>
 							</details>
 						</div>
@@ -51,5 +80,15 @@ include "model/logic.php";
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script>
+		function showForm() {
+			document.getElementById("form").style.display = "block";
+			document.getElementById("annuleerKnop").style.display = "inline-block";
+		}
+		function hideForm() {
+			document.getElementById("form").style.display = "none";
+			document.getElementById("annuleerKnop").style.display = "none";
+		}
+        </script>
 	 </body>
 </html>

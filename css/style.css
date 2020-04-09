@@ -34,6 +34,19 @@ ul>li>i:hover{
     font-size: 20px;
 }
 
+.clickableButton:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.125);
+}
+
+.clickableButton {
+    background: rgba(0, 0, 0, 0.062);
+}
+
+.smallerText {
+    font-size: 20px;
+}
+
 #annuleerAddList {
     display: inline-block;
 }

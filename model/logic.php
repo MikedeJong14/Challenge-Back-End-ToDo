@@ -28,7 +28,7 @@ function getDataByColumn ($columns, $table, $column, $value) {
 	return $result;
 }
 
-function getData ($columns, $table) {
+function getAllData ($columns, $table) {
 
 	$conn = OpenCon();
 	$query = $conn->prepare("SELECT $columns FROM $table");
@@ -88,6 +88,14 @@ function editListName ($listId, $newListName) {
 	$query = $conn->prepare("UPDATE lists SET name = :name WHERE id = :listId");
 	$query->execute([':name'=>$newListName, ':listId'=>$listId]);
 	$conn = null;
+}
+
+function deleteSingleTask ($taskId) {
+
+	$conn = OpenCon();
+    $query = $conn->prepare("DELETE FROM tasks WHERE id = :taskId");
+    $query->execute([':taskId'=>$taskId]);
+    $conn = null;
 }
 
 

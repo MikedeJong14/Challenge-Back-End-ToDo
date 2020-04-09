@@ -1,14 +1,49 @@
-function deleteItemFromList(listId) {
-    var children = document.getElementById('list' + listId).getElementsByClassName('tasks');
-    var childArray = [];
+function getChildrenFromList(listId) {
+    return document.getElementById("list" + listId).getElementsByClassName("tasks");
+}
+
+function childrenIdsInArray(children) {
+    let childrenIDs = [];
     for (let i = 0; i < children.length; i++) {
-        childArray[i] = children[i].id;
+        childrenIDs[i] = children[i].id;
     }
+    return childrenIDs;
+}
+
+function makeClickableButton(listId) {
+    let children = getChildrenFromList(listId);
     for (let i = 0; i < children.length; i++) {
-        var element = children[i];
+        let element = children[i];
         element.classList.add("clickableButton");
-        element.onclick = function() {confirmDeleteItem(childArray[i]);};
     }
+}
+
+function disableClickableButton(listId) {
+    let children = getChildrenFromList(listId);
+    for (let i = 0; i < children.length; i++) {
+        let element = children[i];
+        element.classList.remove("clickableButton");
+        element.onclick = null;
+    }
+}
+
+function showDeleteItem(listId) {
+    let deleteItem = document.getElementById("deleteItem" + listId);
+    let children = getChildrenFromList(listId);
+    let childrenIds = childrenIdsInArray(children);
+    for (let i = 0; i < children.length; i++) {
+        let element = children[i];
+        let itemName = element.textContent.replace(/[^a-zA-Z0-9 ]/g, "");
+        element.onclick = function() {confirmDeleteItem(childrenIds[i], itemName);};
+    }
+    deleteItem.classList.remove("invisible");
+    makeClickableButton(listId);
+}
+
+function hideDeleteItem(listId) {
+    let deleteItem = document.getElementById("deleteItem" + listId);
+    deleteItem.classList.add("invisible");
+    disableClickableButton(listId);
 }
 
 function showAddListForm() {
@@ -45,8 +80,8 @@ function confirmDeleteList(listId, listName) {
         window.location.href = ("deleteList.php?listId=" + listId);
     }
 }
-function confirmDeleteItem(itemId) {
-    let confirmDelete = confirm("Weet je zeker dat je '" + itemId + "' wilt verwijderen?");
+function confirmDeleteItem(itemId, itemName) {
+    let confirmDelete = confirm("Weet je zeker dat je '" + itemName + "' wilt verwijderen?");
     if (confirmDelete) {
         window.location.href = ("deleteTask.php?taskId=" + itemId);
     }

@@ -34,18 +34,9 @@ ul>li>i:hover{
     font-size: 20px;
 }
 
-.addItemForm {
-    display: none;
-}
-
-.editListForm {
-    display: none;
-}
-
-#addListForm {
-    display: none;
-}
-
 #annuleerAddList {
+    display: inline-block;
+}
+.invisible {
     display: none;
 }

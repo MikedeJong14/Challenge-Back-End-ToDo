@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a054c96-a1dd-491f-a128-4c53bb3f3cb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deleteTask.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,14 +37,39 @@
       <updated>1585316653819</updated>
       <workItem from="1585316656007" duration="2749000" />
       <workItem from="1586434025114" duration="40000" />
-      <workItem from="1586434137041" duration="248000" />
+      <workItem from="1586434137041" duration="390000" />
+      <workItem from="1586434540134" duration="198000" />
     </task>
+    <task id="LOCAL-00001" summary="Item verwijderen uit lijst is in progress">
+      <created>1586434509621</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586434509621</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Item verwijderen uit lijst is in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Item verwijderen uit lijst is in progress" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Notifications" timestamp="1586434581007">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1586434581007" />
+    <state x="541" y="26" key="CommitChangelistDialog2" timestamp="1586434508294">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="541" y="26" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586434508294" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1586434514427">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586434514427" />
     <state x="623" y="-855" key="search.everywhere.popup" timestamp="1585317351557">
       <screen x="0" y="-1080" width="1920" height="1040" />
     </state>

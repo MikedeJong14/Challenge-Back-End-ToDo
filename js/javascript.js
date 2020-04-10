@@ -46,6 +46,42 @@ function hideDeleteItem(listId) {
     disableClickableButton(listId);
 }
 
+
+function showEditItemName(listId) {
+    let editItemName = document.getElementById("editItemName" + listId);
+    let children = getChildrenFromList(listId);
+    let childrenIds = childrenIdsInArray(children);
+    for (let i = 0; i < children.length; i++) {
+        let element = children[i];
+        element.onclick = function() {showEditItemNameForm(childrenIds[i]);};
+    }
+    editItemName.classList.remove("invisible");
+    makeClickableButton(listId);
+}
+
+function hideEditItemName(listId) {
+    let editItemName = document.getElementById("editItemName" + listId);
+    let children = getChildrenFromList(listId);
+    let childrenIds = childrenIdsInArray(children);
+    for (let i = 0; i < children.length; i++) {
+        let editItemNameForm = document.getElementById("editItemNameForm" + childrenIds[i]);
+        let itemName = document.getElementById("itemName" + childrenIds[i]);
+        itemName.classList.remove("invisible");
+        editItemNameForm.classList.add("invisible");
+    }
+    editItemName.classList.add("invisible");
+    disableClickableButton(listId);
+}
+
+function showEditItemNameForm(itemId) {
+    let editItemNameForm = document.getElementById("editItemNameForm" + itemId);
+    let itemName = document.getElementById("itemName" + itemId);
+    let inputEditItemName = document.getElementById("inputEditItemName" + itemId);
+    editItemNameForm.classList.remove("invisible");
+    itemName.classList.add("invisible");
+    inputEditItemName.focus();
+}
+
 function showAddListForm() {
     let addListForm = document.getElementById("addListForm");
     let annuleerAddList = document.getElementById("annuleerAddList");

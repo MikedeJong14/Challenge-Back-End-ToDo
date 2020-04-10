@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a054c96-a1dd-491f-a128-4c53bb3f3cb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/editTaskName.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addList.php" beforeDir="false" afterPath="$PROJECT_DIR$/addList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/addTask.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editListName.php" beforeDir="false" afterPath="$PROJECT_DIR$/editListName.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/logic.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +32,11 @@
     <property name="js.last.introduce.type" value="LET" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Program Files\Ampps\www\PHP opdrachten\Challenge Back-end ToDo\js" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -39,7 +51,8 @@
       <workItem from="1586434025114" duration="40000" />
       <workItem from="1586434137041" duration="390000" />
       <workItem from="1586434540134" duration="261000" />
-      <workItem from="1586434818838" duration="11760000" />
+      <workItem from="1586434818838" duration="13175000" />
+      <workItem from="1586514687652" duration="9670000" />
     </task>
     <task id="LOCAL-00001" summary="Item verwijderen uit lijst is in progress">
       <created>1586434509621</created>
@@ -62,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586447616541</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Javascript verplaatst naar een folder">
+      <created>1586447764166</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586447764166</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -71,21 +91,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Item verwijderen uit lijst is in progress" />
     <MESSAGE value="Kan nu een item verwijderen uit een lijst.&#10;Javascript aangepast, code verdeeld in functies." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kan nu een item verwijderen uit een lijst.&#10;Javascript aangepast, code verdeeld in functies." />
+    <MESSAGE value="Javascript verplaatst naar een folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Javascript verplaatst naar een folder" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Notifications" timestamp="1586434581007">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1586434581007" />
-    <state x="541" y="25" key="CommitChangelistDialog2" timestamp="1586447615544">
+    <state x="541" y="25" key="CommitChangelistDialog2" timestamp="1586447762701">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="541" y="25" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586447615544" />
-    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1586447623593">
+    <state x="541" y="25" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586447762701" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1586449065549">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586447623593" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586449065549" />
     <state x="623" y="225" key="search.everywhere.popup" timestamp="1586447658407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

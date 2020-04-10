@@ -98,4 +98,12 @@ function deleteSingleTask ($taskId) {
     $conn = null;
 }
 
+function editTaskName ($taskId, $newTaskName) {
+
+	$conn = OpenCon();
+	$query = $conn->prepare("UPDATE tasks SET description = :description WHERE id = :taskId");
+	$query->execute([':taskId'=>$taskId, ':description'=>$newTaskName]);
+	$conn = null;
+}
+
 

@@ -50,11 +50,11 @@ function getAllDataSorted ($columns, $table, $sortedBy) {
 	return $result;
 }
 
-function addTaskToList ($listId, $taskDescription) {
+function addTaskToList ($listId, $taskDescription, $taskDuration) {
 
 	$conn = OpenCon();
-	$query = $conn->prepare("INSERT INTO tasks (description, list_id) VALUES (:description, :listId)");
-	$query->execute([':description'=>$taskDescription, ':listId'=>$listId]);
+	$query = $conn->prepare("INSERT INTO tasks (description, duration, list_id) VALUES (:description, :duration, :listId)");
+	$query->execute([':description'=>$taskDescription, ':duration'=>$taskDuration, ':listId'=>$listId]);
 	$conn = null;
 }
 

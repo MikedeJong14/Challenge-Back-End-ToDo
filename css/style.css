@@ -31,7 +31,8 @@ ul>li>i:hover{
 }
 
 .tasks {
-    font-size: 20px;
+    font-size: 22px;
+    padding: 0;
 }
 
 .clickableButton:hover {
@@ -44,12 +45,39 @@ ul>li>i:hover{
 }
 
 .smallerText {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 #annuleerAddList {
     display: inline-block;
 }
+
+#annuleerAddItem {
+    display: inline-block;
+}
+
 .invisible {
     display: none;
+}
+
+.taskName {
+    max-width: calc(100% - 140px - 55px)
+}
+.taskDuration {
+    float: right;
+    width: 140px;
+    border-left: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.taskStatus {
+    float: right;
+    width: 55px;
+    border-left: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.taskContent {
+    display: inline-block;
+    height: auto;
+    min-height: 55px;
+    padding: 10px 20px 10px 20px;
 }

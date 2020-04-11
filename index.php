@@ -49,7 +49,7 @@ include "model/logic.php";
 									<li class="list-group-item p-1" >
 										<i class="fas fa-pen ml-2" title="Wijzig lijst naam" onclick="showEditListForm(<?= $list['id'] ?>)"></i>
 										<i class="fas fa-trash ml-2" title="Verwijder lijst" onclick="confirmDeleteList(<?= $list['id'] ?>, '<?= $list['name'] ?>')"></i>
-										<i class="fas fa-minus float-right m-2" title="Verwijder item" onclick="showDeleteItem(<?= $list['id'] ?>, <?= $itemsInList ?> )"></i>
+										<i class="fas fa-minus float-right m-2" title="Verwijder item" onclick="showDeleteItem(<?= $list['id'] ?>)"></i>
 										<i class="fas fa-plus float-right m-2" title="Voeg item toe" onclick="showAddItemForm(<?= $list['id'] ?>)"></i>
 										<i class="fas fa-edit float-right mt-2 mr-1" title="Wijzig item naam"onclick="showEditItemName(<?= $list['id'] ?>)"></i>
 										<div id="deleteItem<?= $list['id'] ?>" class="invisible">
@@ -70,19 +70,26 @@ include "model/logic.php";
 										</div>
 										<div id="addItemForm<?= $list['id'] ?>" class="invisible">
 											<form action="addTask.php?listId=<?= $list['id'] ?>" method="post">
-												<div class="form-group m-0">
+												<div class="form-group m-0 mb-1">
 													<input name="taskDescription" type="text" class="form-control" autocomplete="off" placeholder="Voeg een nieuwe taak toe">
 												</div>
+												<div class="form-group m-0">
+													<input name="taskDuration" type="number" class="form-control" autocomplete="off" placeholder="Hoe lang gaat de taak duren">
+												</div>
+												<input type="submit" value="Voeg toe" class="btn btn-primary">
+												<button id="annuleerAddItem" type="button" class="btn btn-danger" onclick="hideAddItemForm(<?= $list['id'] ?>)">Annuleer</button>
 											</form>
-											<button class="btn btn-danger" onclick="hideAddItemForm(<?= $list['id'] ?>)">Annuleer</button>
+
 										</div>
 									</li>
 									<?php
 									foreach (getDataByColumn('*', 'tasks', 'list_id', $list['id']) as $task) {
-										$itemsInList[$task['id']] = $task;
 										?>
 										<li id="<?= $task['id'] ?>" class="list-group-item tasks">
-											<div id="itemName<?= $task['id'] ?>"> <?= $task['description'] ?> </div>
+											<div id="itemName<?= $task['id'] ?>" class="taskName taskContent"> <?= $task['description'] ?> </div>
+											<div id="itemName<?= $task['id'] ?>" class="taskStatus taskContent"> <?= $task['status'] ?> </div>
+											<div id="itemName<?= $task['id'] ?>" class="taskDuration taskContent"> <?= $task['duration'] ?> min.</div>
+
 											<div id="editItemNameForm<?= $task['id'] ?>" class="invisible">
 												<form action="editTaskName.php?taskId=<?= $task['id'] ?>" method="post" class="d-inline">
 													<div class="form-group m-0">

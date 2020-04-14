@@ -1,8 +1,8 @@
 <?php
 
+//include logic voor database functies
 include "model/logic.php";
 
-//var_dump(getDataByColumn('id', 'lists', 'name', 'bruh'));
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +34,19 @@ include "model/logic.php";
 			<div class="container">
             	<div class="row">
             		<?php
+            		//haal alle lijsten op, kijk of er een lijst open hoort te staan, haal taken op op basis van filteren of sorteren
 					foreach (getAllData('*', 'lists') as $list) {
-						$itemsInList = array();
-						if ($_GET['openList'] === $list['id']) {
+						if ($_GET['openList'] == $list['id']) {
 							$open = 'open';
 						} else {
 							$open = 'closed';
+						}
+						if ($_GET['sortList'] == $list['id']) {
+							$tasks = getDataSorted('*', 'tasks', 'list_id', $list['id']);
+						} else if ($_GET['filterList'] == $list['id']) {
+							$tasks = getDataFiltered('*', 'tasks', 'list_id', $list['id']);
+						} else {
+							$tasks = getDataByColumn('*', 'tasks', 'list_id', $list['id']);
 						}
 						?>
 						<div id="list<?= $list['id'] ?>" class="col-lg-6 p-1 lists">
@@ -49,16 +56,20 @@ include "model/logic.php";
 									<li class="list-group-item p-1" >
 										<i class="fas fa-pen ml-2" title="Wijzig lijst naam" onclick="showEditListForm(<?= $list['id'] ?>)"></i>
 										<i class="fas fa-trash ml-2" title="Verwijder lijst" onclick="confirmDeleteList(<?= $list['id'] ?>, '<?= $list['name'] ?>')"></i>
+										<i class="fas fa-list ml-2" title="Standaard weergave" onclick="standardLayout(<?= $list['id'] ?>)"></i>
+										<i class="fas fa-sort-amount-down-alt ml-2" title="Sorteer op status" onclick="sortList(<?= $list['id'] ?>)"></i>
+										<i class="fas fa-filter ml-1" title="Filtreer op status" onclick="filterList(<?= $list['id'] ?>)"></i>
+
 										<i class="fas fa-minus float-right m-2" title="Verwijder item" onclick="showDeleteItem(<?= $list['id'] ?>)"></i>
 										<i class="fas fa-plus float-right m-2" title="Voeg item toe" onclick="showAddItemForm(<?= $list['id'] ?>)"></i>
-										<i class="fas fa-edit float-right mt-2 mr-1" title="Wijzig item naam"onclick="showEditItemName(<?= $list['id'] ?>)"></i>
+										<i class="fas fa-edit float-right mt-2 mr-1" title="Wijzig item"onclick="showEditItem(<?= $list['id'] ?>)"></i>
 										<div id="deleteItem<?= $list['id'] ?>" class="invisible">
 											<p class="smallerText mb-0">Klik op een item om het te verwijderen</p>
 											<button class="btn btn-danger" onclick="hideDeleteItem(<?= $list['id'] ?>)">Annuleer</button>
 										</div>
-										<div id="editItemName<?= $list['id'] ?>" class="invisible">
-											<p class="smallerText mb-0">Klik op een item om de naam te bewerken</p>
-											<button class="btn btn-danger" onclick="hideEditItemName(<?= $list['id'] ?>)">Annuleer</button>
+										<div id="editItem<?= $list['id'] ?>" class="invisible">
+											<p class="smallerText mb-0">Klik op een naam of duur om het te bewerken</p>
+											<button class="btn btn-danger" onclick="hideEditItem(<?= $list['id'] ?>)">Annuleer</button>
 										</div>
 										<div id="editListForm<?= $list['id'] ?>" class="invisible">
 											<form action="editListName.php?listId=<?= $list['id'] ?>" method="post">
@@ -83,17 +94,30 @@ include "model/logic.php";
 										</div>
 									</li>
 									<?php
-									foreach (getDataByColumn('*', 'tasks', 'list_id', $list['id']) as $task) {
+									//haal alle taken op per lijst, zet het vinkje op 'invisible' als de taak nog niet af is
+									foreach ($tasks as $task) {
+										if ($task['status'] == 0) {
+											$statusClass = "invisible";
+										} else {
+											$statusClass = null;
+										}
 										?>
 										<li id="<?= $task['id'] ?>" class="list-group-item tasks">
 											<div id="itemName<?= $task['id'] ?>" class="taskName taskContent"> <?= $task['description'] ?> </div>
-											<div id="itemName<?= $task['id'] ?>" class="taskStatus taskContent"> <?= $task['status'] ?> </div>
-											<div id="itemName<?= $task['id'] ?>" class="taskDuration taskContent"> <?= $task['duration'] ?> min.</div>
+											<div id="itemStatus<?= $task['id'] ?>" class="taskStatus" onclick="tickStatus(<?= $task['id'] ?>)"><i class="fas fa-check <?= $statusClass ?>"></i></div>
+											<div id="itemDuration<?= $task['id'] ?>" class="taskDuration taskContent"> <?= $task['duration'] ?> min.</div>
 
-											<div id="editItemNameForm<?= $task['id'] ?>" class="invisible">
+											<div id="editItemNameForm<?= $task['id'] ?>" class="invisible taskForm">
 												<form action="editTaskName.php?taskId=<?= $task['id'] ?>" method="post" class="d-inline">
 													<div class="form-group m-0">
 														<input id="inputEditItemName<?= $task['id'] ?>" name="newTaskName" type="text" class="form-control" autocomplete="off" placeholder="Vul in de nieuwe naam van de taak">
+													</div>
+												</form>
+											</div>
+											<div id="editItemDurationForm<?= $task['id'] ?>" class="invisible taskForm">
+												<form action="editTaskDuration.php?taskId=<?= $task['id'] ?>" method="post" class="d-inline">
+													<div class="form-group m-0">
+														<input id="inputEditItemDuration<?= $task['id'] ?>" name="newTaskDuration" type="text" class="form-control" autocomplete="off" placeholder="Vul in de nieuwe duur van de taak">
 													</div>
 												</form>
 											</div>

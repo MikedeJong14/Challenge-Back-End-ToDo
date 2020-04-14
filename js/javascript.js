@@ -1,5 +1,6 @@
-function getChildrenFromList(listId) {
-    return document.getElementById("list" + listId).getElementsByClassName("tasks");
+//haal alle child elementen op van een parent element d.m.v. een classnaam
+function getChildrenFrom(parentId, childClassName) {
+    return document.getElementById(parentId).getElementsByClassName(childClassName);
 }
 
 function childrenIdsInArray(children) {
@@ -10,67 +11,62 @@ function childrenIdsInArray(children) {
     return childrenIDs;
 }
 
-function makeClickableButton(listId) {
-    let children = getChildrenFromList(listId);
-    for (let i = 0; i < children.length; i++) {
-        let element = children[i];
-        element.classList.add("clickableButton");
-    }
-}
-
-function disableClickableButton(listId) {
-    let children = getChildrenFromList(listId);
-    for (let i = 0; i < children.length; i++) {
-        let element = children[i];
-        element.classList.remove("clickableButton");
-        element.onclick = null;
-    }
-}
-
+//voegt CSS toe aan elke taak zodat het op een knop lijkt, veranderd de onclick van elke taak om die taak te verwijderen
 function showDeleteItem(listId) {
     let deleteItem = document.getElementById("deleteItem" + listId);
-    let children = getChildrenFromList(listId);
+    let children = getChildrenFrom("list" + listId, "tasks");
     let childrenIds = childrenIdsInArray(children);
     for (let i = 0; i < children.length; i++) {
         let element = children[i];
         let itemName = element.textContent.replace(/[^a-zA-Z0-9 ]/g, "");
         element.onclick = function() {confirmDeleteItem(childrenIds[i], itemName);};
+        element.classList.add("clickableButton");
     }
     deleteItem.classList.remove("invisible");
-    makeClickableButton(listId);
 }
 
 function hideDeleteItem(listId) {
     let deleteItem = document.getElementById("deleteItem" + listId);
+    let children = getChildrenFrom("list" + listId, "tasks");
+    for (let i = 0; i < children.length; i++) {
+        let element = children[i];
+        element.onclick = null;
+        element.classList.remove("clickableButton");
+    }
     deleteItem.classList.add("invisible");
-    disableClickableButton(listId);
 }
 
-
-function showEditItemName(listId) {
-    let editItemName = document.getElementById("editItemName" + listId);
-    let children = getChildrenFromList(listId);
+//hetzelde als 'showDeleteItem' alleen de naam en duur van een taak zijn elk apart een knop
+function showEditItem(listId) {
+    let editItem = document.getElementById("editItem" + listId);
+    let children = getChildrenFrom("list" + listId, "tasks");
     let childrenIds = childrenIdsInArray(children);
     for (let i = 0; i < children.length; i++) {
         let element = children[i];
-        element.onclick = function() {showEditItemNameForm(childrenIds[i]);};
+        let childContent = getChildrenFrom(element.id, "taskContent");
+        childContent[0].onclick = function() {showEditItemNameForm(childrenIds[i]);};
+        childContent[0].classList.add("clickableButton");
+        childContent[1].onclick = function() {showEditItemDurationForm(childrenIds[i]);};
+        childContent[1].classList.add("clickableButton");
     }
-    editItemName.classList.remove("invisible");
-    makeClickableButton(listId);
+    editItem.classList.remove("invisible");
 }
 
-function hideEditItemName(listId) {
-    let editItemName = document.getElementById("editItemName" + listId);
-    let children = getChildrenFromList(listId);
-    let childrenIds = childrenIdsInArray(children);
+function hideEditItem(listId) {
+    let editItem = document.getElementById("editItem" + listId);
+    let children = getChildrenFrom("list" + listId, "tasks");
     for (let i = 0; i < children.length; i++) {
-        let editItemNameForm = document.getElementById("editItemNameForm" + childrenIds[i]);
-        let itemName = document.getElementById("itemName" + childrenIds[i]);
-        itemName.classList.remove("invisible");
-        editItemNameForm.classList.add("invisible");
+        let element = children[i];
+        let childContent = getChildrenFrom(element.id, "taskContent");
+        let childForms = getChildrenFrom(element.id, "taskForm");
+        for (let j = 0; j < childContent.length; j++) {
+            childContent[j].classList.remove("clickableButton");
+            childContent[j].classList.remove("invisible");
+            childContent[j].onclick = null;
+            childForms[j].classList.add("invisible");
+        }
     }
-    editItemName.classList.add("invisible");
-    disableClickableButton(listId);
+    editItem.classList.add("invisible");
 }
 
 function showEditItemNameForm(itemId) {
@@ -80,6 +76,15 @@ function showEditItemNameForm(itemId) {
     editItemNameForm.classList.remove("invisible");
     itemName.classList.add("invisible");
     inputEditItemName.focus();
+}
+
+function showEditItemDurationForm(itemId) {
+    let editItemDurationForm = document.getElementById("editItemDurationForm" + itemId);
+    let itemDuration = document.getElementById("itemDuration" + itemId);
+    let inputEditItemDuration = document.getElementById("inputEditItemDuration" + itemId);
+    editItemDurationForm.classList.remove("invisible");
+    itemDuration.classList.add("invisible");
+    inputEditItemDuration.focus();
 }
 
 function showAddListForm() {
@@ -121,4 +126,20 @@ function confirmDeleteItem(itemId, itemName) {
     if (confirmDelete) {
         window.location.href = ("deleteTask.php?taskId=" + itemId);
     }
+}
+
+function tickStatus(itemId) {
+    window.location.href = ("tickStatus.php?taskId=" + itemId);
+}
+
+function sortList(listId) {
+    window.location.href = ("index.php?sortList=" + listId + "&openList=" + listId);
+}
+
+function filterList(listId) {
+    window.location.href = ("index.php?filterList=" + listId + "&openList=" + listId);
+}
+
+function standardLayout(listId) {
+    window.location.href = ("index.php?openList=" + listId);
 }

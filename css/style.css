@@ -44,6 +44,11 @@ ul>li>i:hover{
     background: rgba(0, 0, 0, 0.062);
 }
 
+.taskStatus:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.125);
+}
+
 .smallerText {
     font-size: 22px;
 }
@@ -61,7 +66,7 @@ ul>li>i:hover{
 }
 
 .taskName {
-    max-width: calc(100% - 140px - 55px)
+    width: calc(100% - 140px - 55px)
 }
 .taskDuration {
     float: right;
@@ -72,7 +77,13 @@ ul>li>i:hover{
 .taskStatus {
     float: right;
     width: 55px;
+    height: 55px;
+    font-size: 45px;
+    line-height: 45px;
+    padding: 4px 0 0 4px;
     border-left: 1px solid rgba(0, 0, 0, 0.125);
+    display: inline-block;
+
 }
 
 .taskContent {

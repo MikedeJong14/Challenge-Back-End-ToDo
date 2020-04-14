@@ -39,11 +39,22 @@ function getAllData ($columns, $table) {
 	return $result;
 }
 
-function getAllDataSorted ($columns, $table, $sortedBy) {
+function getDataSorted ($columns, $table, $column, $value) {
 
 	$conn = OpenCon();
-	$query = $conn->prepare("SELECT $columns FROM $table ORDER BY $sortedBy ASC");
-	$query->execute();
+	$query = $conn->prepare("SELECT $columns FROM $table WHERE $column = :value ORDER BY status ASC");
+	$query->execute([':value'=>$value]);
+	$query->setFetchMode(PDO::FETCH_ASSOC);
+	$result = $query->fetchAll();
+	$conn = null;
+	return $result;
+}
+
+function getDataFiltered ($columns, $table, $column, $value) {
+
+	$conn = OpenCon();
+	$query = $conn->prepare("SELECT $columns FROM $table WHERE $column = :value AND NOT status = 1");
+	$query->execute([':value'=>$value]);
 	$query->setFetchMode(PDO::FETCH_ASSOC);
 	$result = $query->fetchAll();
 	$conn = null;
@@ -106,4 +117,18 @@ function editTaskName ($taskId, $newTaskName) {
 	$conn = null;
 }
 
+function editTaskDuration ($taskId, $newTaskDuration) {
 
+	$conn = OpenCon();
+	$query = $conn->prepare("UPDATE tasks SET duration = :duration WHERE id = :taskId");
+	$query->execute([':taskId'=>$taskId, ':duration'=>intval($newTaskDuration)]);
+	$conn = null;
+}
+
+function tickStatus ($taskId, $newStatus) {
+
+	$conn = OpenCon();
+	$query = $conn->prepare("UPDATE tasks SET status = :status WHERE id = :taskId");
+	$query->execute([':taskId'=>$taskId, ':status'=>$newStatus]);
+	$conn = null;
+}

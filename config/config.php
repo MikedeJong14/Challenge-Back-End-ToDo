@@ -1,5 +1,5 @@
 <?php
 define('HOST', 'localhost');
 define('USERNAME', 'root');
-define('PASSWORD', 'khypdkbv');
+define('PASSWORD', '');
 define('DB_NAME', 'back-end to-do');

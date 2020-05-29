@@ -19,7 +19,6 @@ include "model/logic.php";
 			<nav>
 				<ul>
 					<li><a href="index.php">Home</a></li>
-					<li><a href=".php">---</a></li>
 				</ul>
 			</nav>
 
@@ -82,7 +81,7 @@ include "model/logic.php";
 										<div id="addItemForm<?= $list['id'] ?>" class="invisible">
 											<form action="addTask.php?listId=<?= $list['id'] ?>" method="post">
 												<div class="form-group m-0 mb-1">
-													<input name="taskDescription" type="text" class="form-control" autocomplete="off" placeholder="Voeg een nieuwe taak toe">
+													<input name="taskDescription" type="text" class="form-control" autocomplete="off" placeholder="Voeg een nieuwe taak toe" required>
 												</div>
 												<div class="form-group m-0">
 													<input name="taskDuration" type="number" class="form-control" autocomplete="off" placeholder="Hoe lang gaat de taak duren">

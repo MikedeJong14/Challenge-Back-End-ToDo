@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a054c96-a1dd-491f-a128-4c53bb3f3cb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/editTaskDuration.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tickStatus.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addList.php" beforeDir="false" afterPath="$PROJECT_DIR$/addList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/addTask.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deleteList.php" beforeDir="false" afterPath="$PROJECT_DIR$/deleteList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deleteTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/deleteTask.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editListName.php" beforeDir="false" afterPath="$PROJECT_DIR$/editListName.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editTaskDuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/editTaskDuration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editTaskName.php" beforeDir="false" afterPath="$PROJECT_DIR$/editTaskName.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/javascript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/logic.php" afterDir="false" />
@@ -15,6 +19,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -22,14 +29,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="LET" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -54,7 +62,25 @@
       <workItem from="1586514687652" duration="9718000" />
       <workItem from="1586607870269" duration="9435000" />
       <workItem from="1586771749515" duration="11083000" />
-      <workItem from="1586857083057" duration="10542000" />
+      <workItem from="1586857083057" duration="11440000" />
+      <workItem from="1587381618541" duration="5471000" />
+      <workItem from="1587460621091" duration="3664000" />
+      <workItem from="1587635965406" duration="1440000" />
+      <workItem from="1587651148313" duration="1212000" />
+      <workItem from="1587709437669" duration="331000" />
+      <workItem from="1587719729398" duration="1531000" />
+      <workItem from="1588448444348" duration="4658000" />
+      <workItem from="1588589725084" duration="249000" />
+      <workItem from="1588593358408" duration="162000" />
+      <workItem from="1588593538181" duration="738000" />
+      <workItem from="1588594605730" duration="1287000" />
+      <workItem from="1588595918493" duration="104000" />
+      <workItem from="1588596131154" duration="86000" />
+      <workItem from="1588596236905" duration="976000" />
+      <workItem from="1588597231615" duration="409000" />
+      <workItem from="1589891832889" duration="2951000" />
+      <workItem from="1590578351932" duration="1943000" />
+      <workItem from="1590752006940" duration="2810000" />
     </task>
     <task id="LOCAL-00001" summary="Item verwijderen uit lijst is in progress">
       <created>1586434509621</created>
@@ -98,11 +124,28 @@
       <option name="project" value="LOCAL" />
       <updated>1586622280161</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Taken filteren en sorteren op status&#10;Status kan veranderd worden per taak">
+      <created>1586879392760</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586879392760</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Item verwijderen uit lijst is in progress" />
@@ -110,29 +153,50 @@
     <MESSAGE value="Javascript verplaatst naar een folder" />
     <MESSAGE value="Item naam veranderen" />
     <MESSAGE value="Duur en status staan bij taken" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duur en status staan bij taken" />
+    <MESSAGE value="Taken filteren en sorteren op status&#10;Status kan veranderd worden per taak" />
+    <option name="LAST_COMMIT_MESSAGE" value="Taken filteren en sorteren op status&#10;Status kan veranderd worden per taak" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#Notifications" timestamp="1586434581007">
+    <state x="552" y="179" key="#Notifications" timestamp="1588597604104">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="179" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1586434581007" />
-    <state x="700" y="311" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586783795665">
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1588597604104" />
+    <state x="700" y="311" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588450667508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="700" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586783795665" />
-    <state x="541" y="25" key="CommitChangelistDialog2" timestamp="1586622278836">
+    <state x="700" y="311" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588450667508" />
+    <state x="714" y="389" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1588593517189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="541" y="25" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586622278836" />
-    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1586622282458">
+    <state x="714" y="389" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588593517189" />
+    <state x="541" y="25" key="CommitChangelistDialog2" timestamp="1586879391746">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586622282458" />
-    <state x="623" y="225" key="search.everywhere.popup" timestamp="1586447658407">
+    <state x="541" y="25" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586879391746" />
+    <state x="879" y="100" width="948" height="847" key="DiffContextDialog" timestamp="1588448863819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="879" y="100" width="948" height="847" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588448863819" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1588593510874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588593510874" />
+    <state x="1070" y="150" key="RollbackChangesDialog" timestamp="1588448848257">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1070" y="150" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588448848257" />
+    <state x="916" y="166" key="SettingsEditor" timestamp="1588597571493">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="916" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588597571493" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1586879396224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586879396224" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1588595198402">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="-855" key="search.everywhere.popup/0.0.1920.1040/0.-1080.1920.1040@0.-1080.1920.1040" timestamp="1585317351557" />
-    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586447658407" />
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588595198402" />
   </component>
 </project>

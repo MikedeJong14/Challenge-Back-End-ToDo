@@ -2,10 +2,6 @@
 
 require 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-}
-
 function getDataById ($columns, $table, $id) {
 
 	$conn = OpenCon();
